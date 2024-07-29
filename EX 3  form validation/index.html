@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let isValid = true;
+            const errorMessages = {
+                student_name: "Please enter your name.",
+                rollno: "Please enter a valid roll number.",
+                gender: "Please select your gender.",
+                year: "Please select your year.",
+                department: "Please select your department.",
+                section: "Please enter your section.",
+                mobile_no: "Please enter a valid mobile number.",
+                email: "Please enter a valid email address.",
+                address: "Please enter your address.",
+                city: "Please enter your city.",
+                country: "Please enter your country.",
+                pincode: "Please enter a valid pincode."
+            };
+
+            // Clear previous error messages
+            const errorFields = document.querySelectorAll('.error');
+            errorFields.forEach(field => field.textContent = '');
+
+            // Validate inputs
+            const studentName = document.getElementById('student_name').value.trim();
+            if (!studentName) {
+                document.getElementById('error_student_name').textContent = errorMessages.student_name;
+                isValid = false;
+            }
+
+            const rollNo = document.getElementById('rollno').value.trim();
+            if (!rollNo || isNaN(rollNo)) {
+                document.getElementById('error_rollno').textContent = errorMessages.rollno;
+                isValid = false;
+            }
+
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById('error_gender').textContent = errorMessages.gender;
+                isValid = false;
+            }
+
+            const year = document.getElementById('year').value;
+            if (year === "") {
+                document.getElementById('error_year').textContent = errorMessages.year;
+                isValid = false;
+            }
+
+            const department = document.getElementById('department').value;
+            if (department === "") {
+                document.getElementById('error_department').textContent = errorMessages.department;
+                isValid = false;
+            }
+
+            const section = document.getElementById('section').value.trim();
+            if (!section) {
+                document.getElementById('error_section').textContent = errorMessages.section;
+                isValid = false;
+            }
+
+            const mobileNo = document.getElementById('mobile_no').value.trim();
+            if (!/^\d{10}$/.test(mobileNo)) {
+                document.getElementById('error_mobile_no').textContent = errorMessages.mobile_no;
+                isValid = false;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('error_email').textContent = errorMessages.email;
+                isValid = false;
+            }
+
+            const address = document.getElementById('address').value.trim();
+            if (!address) {
+                document.getElementById('error_address').textContent = errorMessages.address;
+                isValid = false;
+            }
+
+            const city = document.getElementById('city').value.trim();
+            if (!city) {
+                document.getElementById('error_city').textContent = errorMessages.city;
+                isValid = false;
+            }
+
+            const country = document.getElementById('country').value.trim();
+            if (!country) {
+                document.getElementById('error_country').textContent = errorMessages.country;
+                isValid = false;
+            }
+
+            const pincode = document.getElementById('pincode').value.trim();
+            if (!/^\d{6}$/.test(pincode)) {
+                document.getElementById('error_pincode').textContent = errorMessages.pincode;
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Course Registration Form</h1>
+    <form method="post" action="#" onsubmit="return validateForm();">
+        <div class="form-group">
+            <label for="student_name">Student Name:</label>
+            <input type="text" id="student_name" name="student_name" size="30" maxlength="50" />
+            <span id="error_student_name" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="rollno">Roll Number:</label>
+            <input type="text" id="rollno" name="rollno" size="30" maxlength="10" />
+            <span id="error_rollno" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" />
+            <label for="female">Female</label>
+            <span id="error_gender" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <select id="year" name="year">
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+            <span id="error_year" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <select id="department" name="department">
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science</option>
+                <option value="ECE">Electronics</option>
+                <option value="ME">Mechanical</option>
+                <option value="CE">Civil</option>
+            </select>
+            <span id="error_department" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" size="30" maxlength="5" />
+            <span id="error_section" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="mobile_no">Mobile Number:</label>
+            <input type="text" id="mobile_no" name="mobile_no" size="30" maxlength="10" />
+            <span id="error_mobile_no" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail ID:</label>
+            <input type="text" id="email" name="email" size="30" maxlength="50" />
+            <span id="error_email" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" cols="36"></textarea>
+            <span id="error_address" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" size="30" maxlength="50" />
+            <span id="error_city" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" size="30" maxlength="50" />
+            <span id="error_country" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" size="30" maxlength="6" />
+            <span id="error_pincode" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit Your Entries" />
+            <input type="reset" value="Clear Your Entries" />
+        </div>
+    </form>
+
+</body>
+</html>
