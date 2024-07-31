@@ -35,11 +35,9 @@
                 pincode: "Please enter a valid pincode."
             };
 
-            // Clear previous error messages
             const errorFields = document.querySelectorAll('.error');
             errorFields.forEach(field => field.textContent = '');
 
-            // Validate inputs
             const studentName = document.getElementById('student_name').value.trim();
             if (!studentName) {
                 document.getElementById('error_student_name').textContent = errorMessages.student_name;
