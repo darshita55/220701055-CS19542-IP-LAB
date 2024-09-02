@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Health information website">
+    <title>Health Care</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Health Care</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to Health Care  by 220701055!</h2>
+        <p>Health care is an important determinant in promoting the general physical and mental health and well-being of people around the world.</p>
+        
+        <iframe src="https://en.wikipedia.org/wiki/Nutrition" width="600" height="400" title="Nutrition Wiki"></iframe>
+        
+        <details>
+            <summary>Learn more about Nutrition</summary>
+            <ul>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet">Healthy Diet</a></li>
+                <li><a href="https://www.nutrition.gov/">Nutrition.gov</a></li>
+            </ul>
+        </details>
+
+        <label for="bgcolor">Choose Background Colour:</label>
+        <input type="color" id="bgcolor" name="bgcolor" value="#ffffff">
+        <script>
+            const colorInput = document.getElementById('bgcolor');
+            colorInput.addEventListener('input', function() {
+                document.body.style.backgroundColor = colorInput.value;
+            });
+        </script>
+
+        <form id="bmiForm">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+            
+            <label for="height">Height (m):</label>
+            <input type="number" id="height" required>
+            
+            <button type="submit">Calculate BMI</button>
+        </form>
+
+        <script>
+            document.getElementById('bmiForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const weight = parseFloat(document.getElementById('weight').value);
+                const height = parseFloat(document.getElementById('height').value);
+                const bmi = weight / (height * height);
+                alert('Your BMI is ' + bmi.toFixed(2));
+            });
+        </script>
+
+        <footer>
+            <p>&copy; 2024 Health Care. All rights reserved.</p>
+        </footer>
+
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <svg height="100" width="100">
+            <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        </svg>
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(20, 20, 150, 50);
+        </script>
+    </main>
+</body>
+</html>
