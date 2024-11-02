@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Management Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Game Management Page</h1>
+    
+    <!-- Game settings -->
+    <div id="settings">
+        <h2>Game Settings</h2>
+        <label for="difficulty">Difficulty Level:</label>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+
+        <button id="apply-settings">Apply Settings</button>
+    </div>
+
+    <!-- Score tracking -->
+    <div id="scores">
+        <h2>Scores</h2>
+        <ul id="score-list"></ul>
+    </div>
+
+    <!-- Admin Controls -->
+    <div id="admin-controls">
+        <h2>Admin Controls</h2>
+        <button id="reset-scores">Reset Scores</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let scores = [];
+
+            // Apply settings
+            $('#apply-settings').click(function () {
+                let difficulty = $('#difficulty').val();
+                alert("Difficulty set to: " + difficulty);
+                // Additional logic for difficulty adjustment
+            });
+
+            // Update and display scores
+            function updateScores() {
+                $('#score-list').empty();
+                scores.forEach((score, index) => {
+                    $('#score-list').append(`<li>Player ${index + 1}: ${score}</li>`);
+                });
+            }
+
+            // Reset scores
+            $('#reset-scores').click(function () {
+                scores = [];
+                updateScores();
+            });
+
+            // Example to push new scores
+            function addScore(score) {
+                scores.push(score);
+                updateScores();
+            }
+
+            // Mock adding a score
+            addScore(100);
+            addScore(200);
+        });
+    </script>
+</body>
+</html>
