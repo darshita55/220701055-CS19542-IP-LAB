@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Carousel Styles */
+.carousel-item img {
+    height: 400px;
+    /* Adjust height as needed */
+    object-fit: cover;
+    /* Maintain aspect ratio */
+}
+
+/* Blog Post Card Styles */
+.card {
+    margin-bottom: 20px;
+}
+
+.card img {
+    height: 200px;
+    /* Set height for images in cards */
+    object-fit: cover;
+    /* Maintain aspect ratio */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#sidebar h3 {
+    margin-top: 0;
+}
+
+#sidebar form {
+    margin-top: 15px;
+}
+
+/* Comment Section Styles */
+#comments {
+    margin-top: 30px;
+}
+
+#comments h3 {
+    margin-bottom: 15px;
+}
+
+#comments form textarea {
+    width: 100%;
+    height: 100px;
+    /* Set height for comment box */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+        /* Space between items on mobile */
+    }
+
+    .carousel-item img {
+        height: auto;
+        /* Allow image to scale on smaller screens */
+        max-height: 300px;
+        /* Limit max height */
+    }
+}
